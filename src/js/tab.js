@@ -52,7 +52,8 @@ const b_consumption_update = () => {
   var final = numeral(Math.round(result)).format("0,0");
   var total = result * b_month_consumption;
   document.getElementById("b_niit_hvv").innerHTML =
-    Math.floor(b_month_consumption * b_rate_consumption) + " %";
+    Math.floor(b_rate_consumption * 12) + " %";
+  console.log(b_rate_consumption);
   document.getElementById("b_sard_toloh").innerHTML = final + " ₮";
 };
 const consumption_update = () => {
@@ -65,7 +66,7 @@ const consumption_update = () => {
   var final = numeral(Math.round(result)).format("0,0");
   var total = result * month_consumption;
   document.getElementById("niit_hvv").innerHTML =
-    month_consumption * rate_consumption + " %";
+    Math.floor(rate_consumption * 12) + " %";
   document.getElementById("sard_toloh").innerHTML = final + " ₮";
 };
 const lizing_update = () => {
@@ -81,9 +82,8 @@ const lizing_update = () => {
   c_amount -= c_prepay;
   var r = (c_amount * c_interest) / (1 - 1 / total);
   var result = numeral(Math.round(r)).format("0,0");
-  console.log(result);
   document.getElementById("lizin_niit_hvv").innerHTML =
-    zeel_hugacaa * zeel_hvv + " %";
+    Math.floor(zeel_hvv * 12) + " %";
   document.getElementById("lizin_sard_toloh").innerHTML = result + " ₮";
   var lizing = numeral(Math.round(pre_pay)).format("0,0");
   document.getElementById("urid").innerHTML = lizing + " ₮";
@@ -155,7 +155,7 @@ b_month_consumption_slider.listen("MDCSlider:change", _ => {
   b_consumption_update();
 });
 b_rate_consumption_slider.listen("MDCSlider:change", _ => {
-  rate_consumption = b_rate_consumption_input.value =
+  b_rate_consumption = b_rate_consumption_input.value =
     b_rate_consumption_slider.value / 100;
   b_consumption_update();
 });
