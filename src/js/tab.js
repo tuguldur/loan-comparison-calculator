@@ -51,10 +51,15 @@ const b_consumption_update = () => {
   var result = (b_amount_consumption * c_interest) / (1 - 1 / total);
   var final = numeral(Math.round(result)).format("0,0");
   var total = result * b_month_consumption;
-  document.getElementById("b_niit_hvv").innerHTML =
-    Math.floor(b_rate_consumption * 12) + " %";
+  var hvv =
+    b_month_consumption < 12
+      ? b_month_consumption * b_rate_consumption
+      : b_rate_consumption * 12;
+  document.getElementById("b_niit_hvv").innerHTML = hvv.toFixed(1);
   console.log(b_rate_consumption);
-  document.getElementById("b_sard_toloh").innerHTML = final + " ₮";
+  document.getElementById("b_sard_toloh").innerHTML = !isFinite(result)
+    ? "-"
+    : final + " ₮";
 };
 const consumption_update = () => {
   var c_interest = rate_consumption / 12 / 100;
@@ -62,12 +67,17 @@ const consumption_update = () => {
   for (var i = 1; i <= month_consumption; i++) {
     total = total * (1 + c_interest);
   }
+  var hvv =
+    month_consumption < 12
+      ? month_consumption * rate_consumption
+      : rate_consumption * 12;
   var result = (amount_consumption * c_interest) / (1 - 1 / total);
   var final = numeral(Math.round(result)).format("0,0");
   var total = result * month_consumption;
-  document.getElementById("niit_hvv").innerHTML =
-    Math.floor(rate_consumption * 12) + " %";
-  document.getElementById("sard_toloh").innerHTML = final + " ₮";
+  document.getElementById("niit_hvv").innerHTML = hvv.toFixed(1) + " %";
+  document.getElementById("sard_toloh").innerHTML = !isFinite(result)
+    ? "-"
+    : final + " ₮";
 };
 const lizing_update = () => {
   var c_amount = lizing_vne;
@@ -82,9 +92,11 @@ const lizing_update = () => {
   c_amount -= c_prepay;
   var r = (c_amount * c_interest) / (1 - 1 / total);
   var result = numeral(Math.round(r)).format("0,0");
-  document.getElementById("lizin_niit_hvv").innerHTML =
-    Math.floor(zeel_hvv * 12) + " %";
-  document.getElementById("lizin_sard_toloh").innerHTML = result + " ₮";
+  var hvv = zeel_hugacaa < 12 ? zeel_hugacaa * zeel_hvv : zeel_hvv * 12;
+  document.getElementById("lizin_niit_hvv").innerHTML = hvv.toFixed(1) + " %";
+  document.getElementById("lizin_sard_toloh").innerHTML = !isFinite(r)
+    ? "-"
+    : result + " ₮";
   var lizing = numeral(Math.round(pre_pay)).format("0,0");
   document.getElementById("urid").innerHTML = lizing + " ₮";
 };
