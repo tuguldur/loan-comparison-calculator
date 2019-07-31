@@ -11,6 +11,10 @@ npm start
 npm run build
 
 # Server runs on http://localhost:8080
+
+# Алдаа гарвал
+npm i -g webpack webpack-cli
+
 ```
 
 ### Author
