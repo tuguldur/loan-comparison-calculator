@@ -1,0 +1,86 @@
+@import "./common";
+
+#page {
+  height: 100%;
+  position: relative;
+  width: 100%;
+  @media screen and (min-width: 1280px) {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+}
+.card-container {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  min-height: 360px;
+
+  -ms-flex-order: 4;
+  order: 4;
+  -ms-flex: 1 1 100%;
+  flex: 1 1 100%;
+  width: 100%;
+  height: 100vh;
+  padding: 24px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.card {
+  @media only screen and (max-width: 859px) {
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+      0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+      0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  }
+  @media (min-width: 860px) {
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 0 auto;
+    max-width: 850px;
+  }
+}
+.panel {
+  display: none;
+  flex-direction: column;
+  &.active {
+    display: flex;
+  }
+  padding: 35px;
+}
+.calculator-item {
+  width: 100%;
+  //   padding: 8px;
+  display: flex;
+  margin: 10px 0;
+}
+.amount-text {
+  font-size: 1rem;
+  font-family: Roboto, sans-serif;
+  line-height: 24px;
+  font-weight: 400;
+  color: #000 !important;
+}
+.text-right {
+  text-align: right;
+}
+.dev-slider {
+  height: 56px;
+  .mdc-slider__thumb-container {
+    top: 18px;
+  }
+}
+.input-container {
+  margin-left: 20px;
+}
+.total {
+  border-top: 1px solid #dadce0;
+  margin-top: 12px;
+  padding-top: 12px;
+}

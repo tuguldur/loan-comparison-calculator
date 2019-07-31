@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Loan Comparison Calculator</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="card-container">
+      <div class="card">
+        <div class="mdc-tab-bar" role="tablist">
+          <div class="mdc-tab-scroller">
+            <div class="mdc-tab-scroller__scroll-area">
+              <div class="mdc-tab-scroller__scroll-content">
+                <button
+                  class="mdc-tab mdc-tab--active"
+                  role="tab"
+                  aria-selected="true"
+                  tabindex="0"
+                  aria-controls="panel-1"
+                >
+                  <span class="mdc-tab__content">
+                    <span class="mdc-tab__text-label">Хэрэглээний зээл</span>
+                  </span>
+                  <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                    <span
+                      class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
+                    ></span>
+                  </span>
+                  <span class="mdc-tab__ripple"></span>
+                </button>
+                <button
+                  class="mdc-tab"
+                  role="tab"
+                  tabindex="0"
+                  aria-controls="panel-2"
+                >
+                  <span class="mdc-tab__content">
+                    <span class="mdc-tab__text-label">Лизинг</span>
+                  </span>
+                  <span class="mdc-tab-indicator">
+                    <span
+                      class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
+                    ></span>
+                  </span>
+                  <span class="mdc-tab__ripple"></span>
+                </button>
+                <button
+                  class="mdc-tab "
+                  role="tab"
+                  tabindex="0"
+                  aria-controls="panel-3"
+                >
+                  <span class="mdc-tab__content">
+                    <span class="mdc-tab__text-label">Бизнес зээл</span>
+                  </span>
+                  <span class="mdc-tab-indicator">
+                    <span
+                      class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
+                    ></span>
+                  </span>
+                  <span class="mdc-tab__ripple"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panels">
+          <div class="panel active">
+            <span>Таны хүсч буй зээлийн хэмжээ</span>
+            <div class="calculator-item">
+              <div
+                class="mdc-slider dev-slider"
+                id="amount_consumption"
+                tabindex="0"
+                role="slider"
+                aria-valuemin="1000000"
+                aria-valuemax="20000000"
+                aria-valuenow="1000000"
+                aria-label="Select Value"
+                data-step="100000"
+              >
+                <div class="mdc-slider__track-container">
+                  <div class="mdc-slider__track"></div>
+                </div>
+                <div class="mdc-slider__thumb-container">
+                  <svg class="mdc-slider__thumb" width="21" height="21">
+                    <circle cx="10.5" cy="10.5" r="7.875"></circle>
+                  </svg>
+                  <div class="mdc-slider__focus-ring"></div>
+                </div>
+              </div>
+              <div class="input-container">
+                <div
+                  class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-trailing-icon"
+                >
+                  <span class="mdc-text-field__icon amount-text">₮</span>
+                  <input
+                    type="number"
+                    class="mdc-text-field__input text-right"
+                    id="amount_consumption_input"
+                    value="100000"
+                  />
+                  <div
+                    class="mdc-notched-outline mdc-notched-outline--no-label"
+                  >
+                    <div class="mdc-notched-outline__leading"></div>
+                    <div class="mdc-notched-outline__notch">
+                      <label
+                        for="text-field-hero-input"
+                        class="mdc-floating-label"
+                      ></label>
+                    </div>
+                    <div class="mdc-notched-outline__trailing"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span>Зээлийн хугацаа /сараар/</span>
+            <div class="calculator-item">
+              <div
+                class="mdc-slider dev-slider"
+                id="month_consumption"
+                tabindex="0"
+                role="slider"
+                aria-valuemin="12"
+                aria-valuemax="24"
+                aria-valuenow="12"
+                aria-label="Select Value"
+                data-step="1"
+              >
+                <div class="mdc-slider__track-container">
+                  <div class="mdc-slider__track"></div>
+                </div>
+                <div class="mdc-slider__thumb-container">
+                  <svg class="mdc-slider__thumb" width="21" height="21">
+                    <circle cx="10.5" cy="10.5" r="7.875"></circle>
+                  </svg>
+                  <div class="mdc-slider__focus-ring"></div>
+                </div>
+              </div>
+              <div class="input-container">
+                <div
+                  class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-trailing-icon"
+                >
+                  <input
+                    type="number"
+                    class="mdc-text-field__input text-right"
+                    id="month_consumption_input"
+                    value="12"
+                  />
+                  <div
+                    class="mdc-notched-outline mdc-notched-outline--no-label"
+                  >
+                    <div class="mdc-notched-outline__leading"></div>
+                    <div class="mdc-notched-outline__notch">
+                      <label
+                        for="text-field-hero-input"
+                        class="mdc-floating-label"
+                      ></label>
+                    </div>
+                    <div class="mdc-notched-outline__trailing"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span>Зээлийн хүү /сараар/</span>
+            <div class="calculator-item">
+              <div
+                class="mdc-slider dev-slider"
+                id="rate_consumption"
+                tabindex="0"
+                role="slider"
+                aria-valuemin="350"
+                aria-valuemax="490"
+                aria-valuenow="350"
+                aria-label="Select Value"
+                data-step="10"
+              >
+                <div class="mdc-slider__track-container">
+                  <div class="mdc-slider__track"></div>
+                </div>
+                <div class="mdc-slider__thumb-container">
+                  <svg class="mdc-slider__thumb" width="21" height="21">
+                    <circle cx="10.5" cy="10.5" r="7.875"></circle>
+                  </svg>
+                  <div class="mdc-slider__focus-ring"></div>
+                </div>
+              </div>
+              <div class="input-container">
+                <div
+                  class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-trailing-icon"
+                >
+                  <input
+                    type="number"
+                    class="mdc-text-field__input text-right"
+                    id="rate_consumption_input"
+                    value="3.5"
+                  />
+                  <div
+                    class="mdc-notched-outline mdc-notched-outline--no-label"
+                  >
+                    <div class="mdc-notched-outline__leading"></div>
+                    <div class="mdc-notched-outline__notch">
+                      <label
+                        for="text-field-hero-input"
+                        class="mdc-floating-label"
+                      ></label>
+                    </div>
+                    <div class="mdc-notched-outline__trailing"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="total">
+              <div>
+                <div class="flex">
+                  <div class="total-text">Жилийн хүү</div>
+                  <div class="total-amount" id="niit_hvv">-</div>
+                </div>
+                <div class="flex">
+                  <div class="total-text">Сарын эргэн төлөлт</div>
+                  <div class="total-amount" id="sard_toloh">-</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Лизинг -->
+          <div class="panel">
+            <span>Зээлийн урьдчилгаа</span>
+            <div class="calculator-item">
+              <div
+                class="mdc-slider dev-slider"
+                id="pre_pay"
+                tabindex="0"
+                role="slider"
+                aria-valuemin="1500000"
+                aria-valuemax="600000000"
+                aria-valuenow="1500000"
+                aria-label="Select Value"
+                data-step="10000"
+              >
+                <div class="mdc-slider__track-container">
+                  <div class="mdc-slider__track"></div>
+                </div>
+                <div class="mdc-slider__thumb-container">
+                  <svg class="mdc-slider__thumb" width="21" height="21">
+                    <circle cx="10.5" cy="10.5" r="7.875"></circle>
+                  </svg>
+                  <div class="mdc-slider__focus-ring"></div>
+                </div>
+              </div>
+              <div class="input-container">
+                <div
+                  class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-trailing-icon"
+                >
+                  <span class="mdc-text-field__icon amount-text">₮</span>
+                  <input
+                    type="number"
+                    class="mdc-text-field__input text-right"
+                    id="pre_pay_input"
+                    value="150000"
+                  />
+                  <div
+                    class="mdc-notched-outline mdc-notched-outline--no-label"
+                  >
+                    <div class="mdc-notched-outline__leading"></div>
+                    <div class="mdc-notched-outline__notch">
+                      <label
+                        for="text-field-hero-input"
+                        class="mdc-floating-label"
+                      ></label>
+                    </div>
+                    <div class="mdc-notched-outline__trailing"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span>Автомашины үнэ</span>
+            <div class="calculator-item">
+              <div
+                class="mdc-slider dev-slider"
+                id="lizing_vne"
+                tabindex="0"
+                role="slider"
+                aria-valuemin="3000000"
+                aria-valuemax="200000000"
+                aria-valuenow="1000000"
+                aria-label="Select Value"
+                data-step="10000"
+              >
+                <div class="mdc-slider__track-container">
+                  <div class="mdc-slider__track"></div>
+                </div>
+                <div class="mdc-slider__thumb-container">
+                  <svg class="mdc-slider__thumb" width="21" height="21">
+                    <circle cx="10.5" cy="10.5" r="7.875"></circle>
+                  </svg>
+                  <div class="mdc-slider__focus-ring"></div>
+                </div>
+              </div>
+              <div class="input-container">
+                <div
+                  class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-trailing-icon"
+                >
+                  <span class="mdc-text-field__icon amount-text">₮</span>
+                  <input
+                    type="number"
+                    class="mdc-text-field__input text-right"
+                    id="lizing_vne_input"
+                    value="300000"
+                  />
+                  <div
+                    class="mdc-notched-outline mdc-notched-outline--no-label"
+                  >
+                    <div class="mdc-notched-outline__leading"></div>
+                    <div class="mdc-notched-outline__notch">
+                      <label
+                        for="text-field-hero-input"
+                        class="mdc-floating-label"
+                      ></label>
+                    </div>
+                    <div class="mdc-notched-outline__trailing"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span>Зээлийн хугацаа /сараар/</span>
+            <div class="calculator-item">
+              <div
+                class="mdc-slider dev-slider"
+                id="zeel_hugacaa"
+                tabindex="0"
+                role="slider"
+                aria-valuemin="12"
+                aria-valuemax="36"
+                aria-valuenow="12"
+                aria-label="Select Value"
+                data-step="1"
+              >
+                <div class="mdc-slider__track-container">
+                  <div class="mdc-slider__track"></div>
+                </div>
+                <div class="mdc-slider__thumb-container">
+                  <svg class="mdc-slider__thumb" width="21" height="21">
+                    <circle cx="10.5" cy="10.5" r="7.875"></circle>
+                  </svg>
+                  <div class="mdc-slider__focus-ring"></div>
+                </div>
+              </div>
+              <div class="input-container">
+                <div
+                  class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-trailing-icon"
+                >
+                  <input
+                    type="number"
+                    class="mdc-text-field__input text-right"
+                    id="zeel_hugacaa_input"
+                    value="12"
+                  />
+                  <div
+                    class="mdc-notched-outline mdc-notched-outline--no-label"
+                  >
+                    <div class="mdc-notched-outline__leading"></div>
+                    <div class="mdc-notched-outline__notch">
+                      <label
+                        for="text-field-hero-input"
+                        class="mdc-floating-label"
+                      ></label>
+                    </div>
+                    <div class="mdc-notched-outline__trailing"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span>Зээлийн хугацаа /сараар/</span>
+            <div class="calculator-item">
+              <div
+                class="mdc-slider dev-slider"
+                id="zeel_hvv"
+                tabindex="0"
+                role="slider"
+                aria-valuemin="290"
+                aria-valuemax="390"
+                aria-valuenow="290"
+                aria-label="Select Value"
+                data-step="10"
+              >
+                <div class="mdc-slider__track-container">
+                  <div class="mdc-slider__track"></div>
+                </div>
+                <div class="mdc-slider__thumb-container">
+                  <svg class="mdc-slider__thumb" width="21" height="21">
+                    <circle cx="10.5" cy="10.5" r="7.875"></circle>
+                  </svg>
+                  <div class="mdc-slider__focus-ring"></div>
+                </div>
+              </div>
+              <div class="input-container">
+                <div
+                  class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-trailing-icon"
+                >
+                  <input
+                    type="number"
+                    class="mdc-text-field__input text-right"
+                    id="zeel_hvv_input"
+                    value="2.9"
+                  />
+                  <div
+                    class="mdc-notched-outline mdc-notched-outline--no-label"
+                  >
+                    <div class="mdc-notched-outline__leading"></div>
+                    <div class="mdc-notched-outline__notch">
+                      <label
+                        for="text-field-hero-input"
+                        class="mdc-floating-label"
+                      ></label>
+                    </div>
+                    <div class="mdc-notched-outline__trailing"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="total">
+              <div>
+                <div class="flex">
+                  <div class="total-text">Урьдчилгаа</div>
+                  <div class="total-amount" id="urid">-</div>
+                </div>
+                <div class="flex">
+                  <div class="total-text">Жилийн хүү</div>
+                  <div class="total-amount" id="lizin_niit_hvv">-</div>
+                </div>
+                <div class="flex">
+                  <div class="total-text">Сарын эргэн төлөлт</div>
+                  <div class="total-amount" id="lizin_sard_toloh">-</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel">
+              <span>Таны хүсч буй зээлийн хэмжээ</span>
+              <div class="calculator-item">
+                <div
+                  class="mdc-slider dev-slider"
+                  id="b_amount_consumption"
+                  tabindex="0"
+                  role="slider"
+                  aria-valuemin="10000000"
+                  aria-valuemax="200000000"
+                  aria-valuenow="10000000"
+                  aria-label="Select Value"
+                  data-step="100000"
+                >
+                  <div class="mdc-slider__track-container">
+                    <div class="mdc-slider__track"></div>
+                  </div>
+                  <div class="mdc-slider__thumb-container">
+                    <svg class="mdc-slider__thumb" width="21" height="21">
+                      <circle cx="10.5" cy="10.5" r="7.875"></circle>
+                    </svg>
+                    <div class="mdc-slider__focus-ring"></div>
+                  </div>
+                </div>
+                <div class="input-container">
+                  <div
+                    class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-trailing-icon"
+                  >
+                    <span class="mdc-text-field__icon amount-text">₮</span>
+                    <input
+                      type="number"
+                      class="mdc-text-field__input text-right"
+                      id="b_amount_consumption_input"
+                      value="1000000"
+                    />
+                    <div
+                      class="mdc-notched-outline mdc-notched-outline--no-label"
+                    >
+                      <div class="mdc-notched-outline__leading"></div>
+                      <div class="mdc-notched-outline__notch">
+                        <label
+                          for="text-field-hero-input"
+                          class="mdc-floating-label"
+                        ></label>
+                      </div>
+                      <div class="mdc-notched-outline__trailing"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <span>Зээлийн хугацаа /сараар/</span>
+              <div class="calculator-item">
+                <div
+                  class="mdc-slider dev-slider"
+                  id="b_month_consumption"
+                  tabindex="0"
+                  role="slider"
+                  aria-valuemin="12"
+                  aria-valuemax="36"
+                  aria-valuenow="12"
+                  aria-label="Select Value"
+                  data-step="1"
+                >
+                  <div class="mdc-slider__track-container">
+                    <div class="mdc-slider__track"></div>
+                  </div>
+                  <div class="mdc-slider__thumb-container">
+                    <svg class="mdc-slider__thumb" width="21" height="21">
+                      <circle cx="10.5" cy="10.5" r="7.875"></circle>
+                    </svg>
+                    <div class="mdc-slider__focus-ring"></div>
+                  </div>
+                </div>
+                <div class="input-container">
+                  <div
+                    class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-trailing-icon"
+                  >
+                    <input
+                      type="number"
+                      class="mdc-text-field__input text-right"
+                      id="b_month_consumption_input"
+                      value="12"
+                    />
+                    <div
+                      class="mdc-notched-outline mdc-notched-outline--no-label"
+                    >
+                      <div class="mdc-notched-outline__leading"></div>
+                      <div class="mdc-notched-outline__notch">
+                        <label
+                          for="text-field-hero-input"
+                          class="mdc-floating-label"
+                        ></label>
+                      </div>
+                      <div class="mdc-notched-outline__trailing"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <span>Зээлийн хүү /сараар/</span>
+              <div class="calculator-item">
+                <div
+                  class="mdc-slider dev-slider"
+                  id="b_rate_consumption"
+                  tabindex="0"
+                  role="slider"
+                  aria-valuemin="320"
+                  aria-valuemax="490"
+                  aria-valuenow="320"
+                  aria-label="Select Value"
+                  data-step="10"
+                >
+                  <div class="mdc-slider__track-container">
+                    <div class="mdc-slider__track"></div>
+                  </div>
+                  <div class="mdc-slider__thumb-container">
+                    <svg class="mdc-slider__thumb" width="21" height="21">
+                      <circle cx="10.5" cy="10.5" r="7.875"></circle>
+                    </svg>
+                    <div class="mdc-slider__focus-ring"></div>
+                  </div>
+                </div>
+                <div class="input-container">
+                  <div
+                    class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-trailing-icon"
+                  >
+                    <input
+                      type="number"
+                      class="mdc-text-field__input text-right"
+                      id="b_rate_consumption_input"
+                      value="3.2"
+                    />
+                    <div
+                      class="mdc-notched-outline mdc-notched-outline--no-label"
+                    >
+                      <div class="mdc-notched-outline__leading"></div>
+                      <div class="mdc-notched-outline__notch">
+                        <label
+                          for="text-field-hero-input"
+                          class="mdc-floating-label"
+                        ></label>
+                      </div>
+                      <div class="mdc-notched-outline__trailing"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="total">
+                <div>
+                  <div class="flex">
+                    <div class="total-text">Жилийн хүү</div>
+                    <div class="total-amount" id="b_niit_hvv">-</div>
+                  </div>
+                  <div class="flex">
+                    <div class="total-text">Сарын эргэн төлөлт</div>
+                    <div class="total-amount" id="b_sard_toloh">-</div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="bundle.min.js"></script>
+  </body>
+</html>

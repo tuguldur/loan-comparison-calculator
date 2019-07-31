@@ -1,0 +1,51 @@
+$mdc-theme-primary: #000;
+$mdc-theme-secondary: #000;
+@import "@material/icon-button/mdc-icon-button";
+@import "@material/button/mdc-button";
+@import "@material/ripple/mdc-ripple";
+@import "@material/slider/mdc-slider";
+
+@import "@material/tab-bar/mdc-tab-bar";
+@import "@material/tab-scroller/mdc-tab-scroller";
+@import "@material/tab-indicator/mdc-tab-indicator";
+@import "@material/tab/mdc-tab";
+
+@import "@material/typography/mdc-typography";
+@import "@material/textfield/mdc-text-field";
+
+@import "./font";
+* {
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Roboto";
+  margin: 0;
+  padding: 0;
+  background-color: #fafafa;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+}
+.flex {
+  display: flex;
+}
+.total-text {
+  box-flex: 1;
+  flex-grow: 1;
+  flex-shrink: 1;
+  position: relative;
+}
+.total-amount {
+  box-flex: 0;
+  flex-grow: 0;
+  flex-shrink: 0;
+  position: relative;
+}
